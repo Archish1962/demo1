@@ -10,7 +10,7 @@ pipeline {
 
         stage('Run Test') {
             steps {
-                sh 'mvn test'   // Use 'sh' if Linux, 'bat' if Windows
+                bat 'mvn test'   // Use 'sh' if Linux, 'bat' if Windows
             }
         }
     }
