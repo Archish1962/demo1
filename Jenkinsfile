@@ -1,19 +1,22 @@
-pipeline{
+pipeline {
     agent any
-    stages{
-        stage('Checkout code'){
-            steps{
+
+    stages {
+        stage('Checkout Code') {
+            steps {
                 git 'https://github.com/Archish1962/demo1.git'
             }
+        }
 
-            steps('Run test'){
-                sh 'mvn test'
+        stage('Run Test') {
+            steps {
+                sh 'mvn test'   // Use 'sh' if Linux, 'bat' if Windows
             }
         }
+    }
 
-        }
-    post{
-        always{
+    post {
+        always {
             junit 'target/surefire-reports/*.xml'
         }
     }
